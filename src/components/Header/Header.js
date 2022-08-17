@@ -3,8 +3,8 @@ import estilos from './header.module.css';
 
 const Header = () => {
     return (
-        <header className={estilos.contenedorMain}>
-            <Navbar />
+        <header className={estilos.header}>
+            <Navbar isFooter={true} />
         </header>
     );
 };
