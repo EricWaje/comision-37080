@@ -1,4 +1,4 @@
-//si utilizan imagenes desde src, primero las importan y luego las utilizan abajo.
+//si utilizan imagenes desde src, primero las importan y luego las utilizan abajo. Cuando vemoa firebase esta manera no va a funcionar, por eso recomiendo utilziar las img desde una nube o desde public.
 //import prod1 from '../img/logo512.png';
 
 export const products = [
