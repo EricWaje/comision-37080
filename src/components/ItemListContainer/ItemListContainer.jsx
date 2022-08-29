@@ -5,21 +5,19 @@ const ItemListContainer = ({ saludo }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        const getProducts = new Promise((res, rej) => {
-            setTimeout(() => {
-                res(products);
-            }, 3000);
-        });
+        const getProducts = () =>
+            new Promise((res, rej) => {
+                setTimeout(() => {
+                    res(products);
+                }, 3000);
+            });
 
-        getProducts
+        getProducts()
             .then((data) => {
                 setItems(data);
             })
             .catch((error) => {
-                //console.log(error);
-            })
-            .finally(() => {
-                //console.log('Finally');
+                console.log(error);
             });
     }, []);
 
@@ -41,3 +39,17 @@ const ItemListContainer = ({ saludo }) => {
 };
 
 export default ItemListContainer;
+
+// Promesas:
+// const p = new Promise ((res, rej)=>{
+//  //res()
+//  //rej()
+// })
+
+// p.then(()=>{
+//     console.log('salio todo bien')
+// })
+
+// p.catch(()=>{
+//     console.log()
+// })
