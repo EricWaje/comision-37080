@@ -1,13 +1,13 @@
 import React from 'react';
-import EjemploApi from '../EjemploApis/EjemploApi';
-//import ItemListContainer from '../ItemListContainer/ItemListContainer';
+//import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import estilos from './main.module.css';
 
 const Main = () => {
     return (
         <main className={estilos.main}>
-            {/* <ItemListContainer saludo="Bienvenidos" /> */}
-            <EjemploApi />
+            <ItemListContainer saludo="Bienvenidos" />
+            {/* <ItemDetailContainer /> */}
         </main>
     );
 };

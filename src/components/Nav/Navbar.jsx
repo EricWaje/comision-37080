@@ -1,10 +1,8 @@
 import React from 'react';
-import Button from '../Button/Button';
+import CartWidget from './CartWidget';
 import estilos from './navbar.module.css';
 
 const Navbar = (props) => {
-    //console.log(props);
-    //const condicion = true;
     if (props.isFooter) {
         return (
             <nav className={estilos.nav}>
@@ -20,8 +18,7 @@ const Navbar = (props) => {
                         <a href="https://google.com">Contacto</a>
                     </li>
                 </ul>
-                <Button value="Sign In" variant="primary" />
-                <span className="material-icons">shopping_cart</span>
+                <CartWidget />
             </nav>
         );
     } else {
