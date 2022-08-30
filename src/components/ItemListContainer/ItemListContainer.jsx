@@ -9,7 +9,7 @@ const ItemListContainer = ({ saludo }) => {
             new Promise((res, rej) => {
                 setTimeout(() => {
                     res(products);
-                }, 3000);
+                }, 500);
             });
 
         getProducts()
@@ -30,7 +30,7 @@ const ItemListContainer = ({ saludo }) => {
                     <div key={item.id}>
                         <p>{item.title}</p>
                         <h5>${item.price}.-</h5>
-                        <img src={item.img} alt="" />
+                        <img src={item.img} alt="" width="150px" />
                     </div>
                 );
             })}

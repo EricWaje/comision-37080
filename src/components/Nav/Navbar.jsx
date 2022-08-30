@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+//import Button from '../Button/Button';
 import estilos from './navbar.module.css';
 
 const Navbar = (props) => {
@@ -20,7 +20,7 @@ const Navbar = (props) => {
                         <a href="https://google.com">Contacto</a>
                     </li>
                 </ul>
-                <Button value="Sign In" variant="primary" />
+                {/* <Button value="Sign In" variant="primary" /> */}
                 <span className="material-icons">shopping_cart</span>
             </nav>
         );

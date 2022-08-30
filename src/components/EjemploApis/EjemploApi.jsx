@@ -7,19 +7,29 @@ const EjemploApi = () => {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products') //GET
-            .then((res) => res.json())
-            .then((res) => {
-                setItems(res);
-                //setIsLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                setIsLoading(false);
+    const traerProductos = async () => {
+        // const { data } = await axios('https://fakestoreapi.com/products');
+        // console.log(data);
+        try {
+            const datos = await fetch('https://fakestoreapi.com/products', {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: 'test product',
+                    price: 13.5,
+                    description: 'lorem ipsum set',
+                    image: 'https://i.pravatar.cc',
+                    category: 'electronic',
+                }),
             });
+            const info = await datos.json();
+            console.log('post', info);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        traerProductos();
     }, []);
 
     return (
@@ -55,12 +65,26 @@ export default EjemploApi;
 
 // fetch('https://fakestoreapi.com/products', {
 //     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
 //     body: JSON.stringify({
-//         user: 'Eric',
-//         email: 'ericw@gmail.com',
-//         edad: 27
-//     })
+//         title: 'test product',
+//         price: 13.5,
+//         description: 'lorem ipsum set',
+//         image: 'https://i.pravatar.cc',
+//         category: 'electronic',
+//     }),
 // })
+//     .then((res) => res.json())
+//     .then((json) => console.log(json));
+
+// fetch('https://fakestoreapi.com/products') //GET
+//     .then((datos) => datos.json())
+//     .then((res) => {
+//         setItems(res);
+//         //setIsLoading(false);
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+//     .finally(() => {
+//         setIsLoading(false);
+//     });

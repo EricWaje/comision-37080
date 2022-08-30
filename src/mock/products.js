@@ -14,6 +14,23 @@ export const products = [
         //img: 'logo192.png',
         //img desde src:
         //img: prod1,
+        talles: [
+            {
+                id: 1,
+                nombre: 'S',
+                precio: 200,
+            },
+            {
+                id: 2,
+                nombre: 'M',
+                precio: 200,
+            },
+            {
+                id: 3,
+                nombre: 'L',
+                precio: 200,
+            },
+        ],
     },
     {
         id: 2,
@@ -22,6 +39,23 @@ export const products = [
         stock: 10,
         category: 'camisas',
         img: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/camisa4_ehruek.jpg',
+        talles: [
+            {
+                id: 1,
+                nombre: 'S',
+                precio: 200,
+            },
+            {
+                id: 2,
+                nombre: 'M',
+                precio: 200,
+            },
+            {
+                id: 3,
+                nombre: 'L',
+                precio: 200,
+            },
+        ],
     },
     {
         id: 3,
@@ -30,6 +64,23 @@ export const products = [
         stock: 10,
         category: 'gorras',
         img: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/gorra4C_nyvjj6.jpg',
+        talles: [
+            {
+                id: 1,
+                nombre: 'S',
+                precio: 200,
+            },
+            {
+                id: 2,
+                nombre: 'M',
+                precio: 200,
+            },
+            {
+                id: 3,
+                nombre: 'L',
+                precio: 200,
+            },
+        ],
     },
 ];
 

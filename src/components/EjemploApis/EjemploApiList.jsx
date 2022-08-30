@@ -1,15 +1,11 @@
 import React from 'react';
+import EjemploApiCard from './EjemploApiCard';
 
-const EjemploApiList = ({ items }) => {
+const EjemploApiList = (props) => {
     return (
-        <div>
-            {items.map((item) => {
-                return (
-                    <div key={item.id}>
-                        <img src={item.image} width="200px" alt={item.title} />
-                        <h3>{item.title}</h3>
-                    </div>
-                );
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {props.items.map((item) => {
+                return <EjemploApiCard item={item} key={item.id} />;
             })}
         </div>
     );
