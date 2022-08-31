@@ -32,16 +32,3 @@ export const products = [
         img: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/gorra4C_nyvjj6.jpg',
     },
 ];
-
-//const unicoProd = products.find((producto)=> producto.id === 2)
-
-// import {products} form '..///'
-
-// const ItemDetailContainer = () =>{
-
-//     return(
-//         ....
-//     )
-// }
-
-// export default ItemDetailContainer
