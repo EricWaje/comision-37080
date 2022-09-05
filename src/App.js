@@ -2,7 +2,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 import { BrowserRouter } from 'react-router-dom';
-//import Counter from './components/Counter/Counter';
 
 const App = () => {
     return (
@@ -38,6 +37,4 @@ export default App;
 //     console.log(param);
 // };
 
-{
-    /* <Counter stock={10} onAdd={onAdd} /> */
-}
+/* <Counter stock={10} onAdd={onAdd} /> */
