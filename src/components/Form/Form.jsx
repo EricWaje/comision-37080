@@ -42,7 +42,7 @@ const Form = () => {
         window.addEventListener('mousemove', handleMouseMove);
         console.log('Creo evento');
         return () => {
-            //siempre antes
+            //se ejecuta siempre antes del código del useEffect salvo en el primer render
             //clearInterval()
             window.removeEventListener('mousemove', handleMouseMove);
             console.log('Borro evento');
