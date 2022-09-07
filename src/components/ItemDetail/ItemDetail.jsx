@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 import Counter from '../Counter/Counter';
 
 const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState(0);
+    const { addToCart } = useContext(CartContext);
 
-    const onAdd = (arg) => {
-        setCantidad(arg);
+    const onAdd = (cantidadItem) => {
+        setCantidad(cantidadItem);
+        addToCart(item, cantidadItem);
     };
 
     return (
@@ -22,15 +26,17 @@ const ItemDetail = ({ item }) => {
                 </p>
                 <h3>${item.price}.-</h3>
                 {cantidad === 0 ? (
-                    <h2>Cantidad es 0</h2>
+                    <Counter stock={item.stock} initial={1} onAdd={onAdd} />
                 ) : (
-                    <h2>Cantidad es {cantidad}</h2>
+                    <Link to="/cart">Ir al carrito</Link>
                 )}
-                <Counter stock={item.stock} initial={1} onAdd={onAdd} />
-                <Link to="/cart">Ir al carrito</Link>
             </div>
         </div>
     );
 };
 
 export default ItemDetail;
+
+// const foo = (argumento) => {
+
+// }

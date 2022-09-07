@@ -14,7 +14,7 @@ const Form = () => {
         //console.log(event.target.elements.nombre.value);
         //console.log(event.target.elements.apellido.value);
         //console.dir(event.target);
-        console.log(nombre, apellido, talle); //enviar la info a la base de datos
+        //console.log(nombre, apellido, talle); //enviar la info a la base de datos
         //setNombre('');
     };
 
@@ -40,12 +40,12 @@ const Form = () => {
             //setX(e.clientX);
         };
         window.addEventListener('mousemove', handleMouseMove);
-        console.log('Creo evento');
+        //console.log('Creo evento');
         return () => {
             //siempre antes
             //clearInterval()
             window.removeEventListener('mousemove', handleMouseMove);
-            console.log('Borro evento');
+            //console.log('Borro evento');
         };
     });
 

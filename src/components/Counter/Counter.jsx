@@ -12,14 +12,20 @@ const Counter = ({ stock, onAdd, initial }) => {
         setCount(count - 1);
     };
 
+    const agregarAlCarrito = () => {
+        onAdd(count);
+    };
+
     return (
         <div>
             <button onClick={sumar}>+</button>
             <button onClick={restar}>-</button>
             <p>Count: {count} </p>
-            <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+            <button onClick={agregarAlCarrito}>Agregar al carrito</button>
         </div>
     );
 };
 
 export default Counter;
+
+//foo(10);
