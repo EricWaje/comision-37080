@@ -9,30 +9,46 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-    //console.log(props);
-    //estados
-    //funciones
+
     const addToCart = (item, cantidad) => {
-        //{id: 1, name: 'Producto 1'}
-        // 3
-        //...item --> id: 1, name: 'Producto 1'
-        //console.log({ ...item, cantidad });
-        if (false) {
+        if (isInCart(item.id)) {
             //lo encuentro y le sumo la cantidad
+            //alert('Ya está en el carrito');
+            sumarCantidad(item, cantidad);
         } else {
             setCart([...cart, { ...item, cantidad }]);
         }
     };
 
     // corroborar si el producto ya está en el carrito (isInCart)
+    const isInCart = (id) => {
+        return cart.some((prod) => prod.id === id);
+    };
 
-    //sumar cantidades del mismo producto
+    const sumarCantidad = (item, cantidad) => {
+        const carritoActualizado = cart.map((prod) => {
+            if (prod.id === item.id) {
+                const productoActualizado = {
+                    ...prod,
+                    cantidad: prod.cantidad + cantidad,
+                };
+                return productoActualizado;
+            } else {
+                return prod;
+            }
+        });
+        setCart(carritoActualizado);
+    };
 
+    console.log(cart);
+
+    const eliminarProd = (id) => {
+        console.log(`eliminando producto ${id}`);
+        //setCart(cart.filter((prod) => prod.id !== id));
+        const carritoFiltrado = cart.filter((prod) => prod.id !== id);
+        setCart(carritoFiltrado);
+    };
     //eliminar un solo producto pasandole el id
-
-    //calcular total de unidades para el cart widget
-
-    //calcular total precio
 
     //vaciar todo el carrito
     const clearCart = () => {
@@ -40,10 +56,30 @@ const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+        <CartContext.Provider
+            value={{ cart, addToCart, clearCart, eliminarProd }}
+        >
             {children}
         </CartContext.Provider>
     );
 };
 
 export default CartProvider;
+
+// const isInCart2 = (id) => {
+//     const prodEncontrado = cart.find((prod) => prod.id === id);
+//     if (prodEncontrado !== undefined) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// };
+
+// const sumarCantidad2 = (item, cantidad) => {
+//     const carritoActualizado = cart.map((prod) =>
+//         prod.id === item.id
+//             ? { ...prod, cantidad: prod.cantidad + cantidad }
+//             : prod
+//     );
+//     setCart(carritoActualizado);
+// };
