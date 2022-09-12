@@ -4,7 +4,7 @@ const CartWidget = () => {
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <span className="material-icons">shopping_cart</span>
-            <span>0</span>
+            <span>{}</span>
         </div>
     );
 };

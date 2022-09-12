@@ -11,7 +11,10 @@ body {
 }
 
 .active {
-    color: red;
+    color: white;
+    background-color: black;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .detail {
