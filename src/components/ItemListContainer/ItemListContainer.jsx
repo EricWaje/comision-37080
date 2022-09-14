@@ -1,41 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../mock/products';
+//import { products } from '../../mock/products';
 import ItemList from '../ItemList/ItemList';
 import ClipLoader from 'react-spinners/ClipLoader';
+// eslint-disable-next-line
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 const ItemListContainer = ({ saludo }) => {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    //const parametroURL = useParams();
-    //console.log('parametroURL :', parametroURL.categoryName);
     const { categoryName } = useParams();
-    //categoryName -> camisas, gorras, remeras | UNDEFINED
+    //console.log(categoryName);
 
     useEffect(() => {
-        const getProducts = () =>
-            new Promise((res, rej) => {
-                const prodFiltrados = products.filter(
-                    (prod) => prod.category === categoryName
-                );
-                setTimeout(() => {
-                    res(categoryName ? prodFiltrados : products);
-                }, 300);
-            });
-
-        getProducts()
-            .then((data) => {
-                setItems(data);
-                setIsLoading(false);
+        const itemCollection = collection(db, 'productos');
+        //const q = query(itemCollection, where('category', '==', 'camisas'));
+        getDocs(itemCollection)
+            .then((res) => {
+                //console.log(res);
+                //console.log(res.docs);
+                //data() -> método de firestore
+                const products = res.docs.map((prod) => {
+                    //console.log(prod);
+                    //console.log(prod.id);
+                    //console.log(prod.data());
+                    return {
+                        id: prod.id,
+                        ...prod.data(),
+                    };
+                });
+                setItems(products);
             })
             .catch((error) => {
                 console.log(error);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
-
-        return () => {
-            setIsLoading(true);
-        };
     }, [categoryName]);
 
     return (
@@ -61,6 +64,29 @@ const ItemListContainer = ({ saludo }) => {
 };
 
 export default ItemListContainer;
+
+// const getProducts = () =>
+//     new Promise((res, rej) => {
+//         const prodFiltrados = products.filter(
+//             (prod) => prod.category === categoryName
+//         );
+//         setTimeout(() => {
+//             res(categoryName ? prodFiltrados : products);
+//         }, 300);
+//     });
+
+// getProducts()
+//     .then((data) => {
+//         setItems(data);
+//         setIsLoading(false);
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     });
+
+// return () => {
+//     setIsLoading(true);
+// };
 
 // Promesas:
 // const p = new Promise ((res, rej)=>{
