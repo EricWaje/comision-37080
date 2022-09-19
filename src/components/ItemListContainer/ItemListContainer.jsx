@@ -12,20 +12,18 @@ const ItemListContainer = ({ saludo }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     const { categoryName } = useParams();
-    //console.log(categoryName);
 
     useEffect(() => {
+        setIsLoading(true);
         const itemCollection = collection(db, 'productos');
-        //const q = query(itemCollection, where('category', '==', 'camisas'));
-        getDocs(itemCollection)
+
+        const referencia = categoryName
+            ? query(itemCollection, where('category', '==', categoryName))
+            : itemCollection;
+
+        getDocs(referencia)
             .then((res) => {
-                //console.log(res);
-                //console.log(res.docs);
-                //data() -> método de firestore
                 const products = res.docs.map((prod) => {
-                    //console.log(prod);
-                    //console.log(prod.id);
-                    //console.log(prod.data());
                     return {
                         id: prod.id,
                         ...prod.data(),

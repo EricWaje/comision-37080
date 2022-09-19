@@ -4,6 +4,14 @@ import Main from './components/Main/Main';
 import { BrowserRouter } from 'react-router-dom';
 import CartProvider from './context/CartContext';
 
+// import { collection, addDoc } from 'firebase/firestore';
+// import { db } from './firebaseConfig';
+// import { products } from './mock/products';
+
+// const ref = collection(db, 'productos');
+
+// products.map((producto) => addDoc(ref, producto));
+
 const App = () => {
     return (
         <CartProvider>
