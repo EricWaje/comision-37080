@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import Form from '../Form/Form';
+import CartDetail from './CartDetail';
 
 const Cart = () => {
     const [idCompra, setIdCompra] = useState('');
@@ -36,22 +37,7 @@ const Cart = () => {
             }}
         >
             {cart.map((prod) => (
-                <div
-                    key={prod.id}
-                    style={{
-                        border: '1px solid black',
-                        borderRadius: '8px',
-                        display: 'flex',
-                        justifyContent: 'space-around',
-                        padding: '8px',
-                        margin: '8px',
-                    }}
-                >
-                    <h3>{prod.title}</h3>
-                    <h3>Cantidad: {prod.cantidad}</h3>
-                    <h3>Precio${prod.price}.-</h3>
-                    <button onClick={() => deleteOne(prod.id)}>Delete</button>
-                </div>
+                <CartDetail key={prod.id} prod={prod} deleteOne={deleteOne} />
             ))}
 
             <button onClick={clearCart}>Clear Cart</button>

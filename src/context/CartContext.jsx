@@ -10,19 +10,16 @@ const CartProvider = ({ children }) => {
 
     const addToCart = (item, cantidad) => {
         if (isInCart(item.id)) {
-            //lo encuentro y le sumo la cantidad
             totalQuantitySingleProduct(item, cantidad);
         } else {
             setCart([...cart, { ...item, cantidad }]);
         }
     };
 
-    // corroborar si el producto ya está en el carrito (isInCart)
     const isInCart = (id) => {
         return cart.some((producto) => producto.id === id);
     };
 
-    //sumar cantidad del mismo producto
     const totalQuantitySingleProduct = (item, cantidad) => {
         const updateProducts = cart.map((prod) => {
             if (prod.id === item.id) {
@@ -39,7 +36,6 @@ const CartProvider = ({ children }) => {
         setCart(updateProducts);
     };
 
-    //calcular total de unidades para el cart widget
     const totalQuantity = () => {
         let acumulador = 0;
         cart.forEach((prod) => {
@@ -48,7 +44,6 @@ const CartProvider = ({ children }) => {
         setUnidades(acumulador);
     };
 
-    //calcular total precio del carrito
     const totalPrice = () => {
         let acumulador = 0;
         cart.forEach((prod) => {
@@ -57,13 +52,11 @@ const CartProvider = ({ children }) => {
         return acumulador;
     };
 
-    //eliminar un solo producto pasandole el id
     const deleteOne = (id) => {
         const filteredProducts = cart.filter((prod) => prod.id !== id);
         setCart(filteredProducts);
     };
 
-    //vaciar todo el carrito
     const clearCart = () => {
         setCart([]);
     };
