@@ -12,7 +12,9 @@
 
 ### Pasos para levantar el proyecto localmente
 
-`git clone https://github.com/EricWaje/comision-37080.git `
+```
+git clone https://github.com/EricWaje/comision-37080.git
+```
 
 `npm install`
 
