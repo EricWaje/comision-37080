@@ -1,13 +1,14 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
+//process.env -> objeto donde se guardan mis variables de entorno
 const firebaseConfig = {
-    apiKey: 'AIzaSyCU6JXM6DAN5ebUOLOoQ18rQLvi3lPykvQ',
-    authDomain: 'react-37080-profe.firebaseapp.com',
-    projectId: 'react-37080-profe',
-    storageBucket: 'react-37080-profe.appspot.com',
-    messagingSenderId: '334358558901',
-    appId: '1:334358558901:web:d4947fa00e72caede6e6fc',
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

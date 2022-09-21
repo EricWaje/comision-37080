@@ -19,3 +19,7 @@ git clone https://github.com/EricWaje/comision-37080.git
 `npm install`
 
 `npm start`
+
+```javascript
+const nombre = 'Eric';
+```
