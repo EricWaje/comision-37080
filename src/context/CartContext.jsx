@@ -38,7 +38,8 @@ const CartProvider = ({ children }) => {
 
     const totalQuantity = () => {
         let acumulador = 0;
-        cart.forEach((prod) => {
+        const copia = [...cart]
+        copia.forEach((prod) => {
             acumulador += prod.cantidad;
         });
         setUnidades(acumulador);
@@ -46,7 +47,8 @@ const CartProvider = ({ children }) => {
 
     const totalPrice = () => {
         let acumulador = 0;
-        cart.forEach((prod) => {
+        const copia = [...cart]
+        copia.forEach((prod) => {
             acumulador += prod.cantidad * prod.price;
         });
         return acumulador;
